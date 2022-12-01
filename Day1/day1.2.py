@@ -13,7 +13,7 @@ def top_three(input):
             continue
         max_calories.append(calorie_count)
         calorie_count = 0
-        print(sum(heapq.nlargest(3, zip(max_calories))))
+        print(heapq.nlargest(3, zip(max_calories)))
         max_calories.sort(reverse=True)
         print(sum(max_calories[:3]))
 
