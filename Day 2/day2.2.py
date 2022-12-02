@@ -6,25 +6,31 @@ from pathlib import Path
 # Row 2: X = Rock, Y = Paper, Z = Scissors
 # Score Per Shape: 1 = Rock, 2 = Paper, 3 = Scissors
 # Score Per Outcome: 0 = Loss, 3 = Draw, 6 = Win
+# Secret Outcome: X = Loss, Y = draw, Z = Win
 
 def rps_game(input):
-    data = (input.split("\n"))
+    data = input.split("\n")
     draw = 3
     win = 6
     loss = 0
+
+    rock = 1
+    paper = 2
+    scissors = 3
+
     game_points = 0
 
     game = {
 
-        'A X': draw + 1,
-        'A Y': win + 2,
-        'A Z': loss + 3,
-        'B X': loss + 1,
-        'B Y': draw + 2,
-        'B Z': win + 3,
-        'C X': win + 1,
-        'C Y': loss + 2,
-        'C Z': draw + 3
+        'A X': loss + scissors,
+        'A Y': draw + rock,
+        'A Z': win + paper,
+        'B X': loss + rock,
+        'B Y': draw + paper,
+        'B Z': win + scissors,
+        'C X': loss + paper,
+        'C Y': draw + scissors,
+        'C Z': win + rock
     }
 
     for n in data:
