@@ -5,6 +5,7 @@ from pathlib import Path
 
 def rucksack(input):
     data = (input.split("\n"))
+    group = list(data[i:i+3] for i in range(0, len(data), 3))
 
     alpha = string.ascii_letters
     points = {}
@@ -13,14 +14,13 @@ def rucksack(input):
     for i in range(len(alpha)):
         points[alpha[i]] = i+1
 
-    for item in data:
-        first_half = item[:len(item)//2]
-        second_half = item[len(item)//2:]
-        for letter in first_half:
-            if letter in second_half:
-                sum += points[letter]
-                break
-    print(sum)
+    for item in group:
+        for line in item:
+            for letter in line:
+                if (letter in item[0]) and (letter in item[1]) and (letter in item[2]):
+                    sum += points[letter]
+                    break
+    print(sum/3)
 
 
 if __name__ == "__main__":
