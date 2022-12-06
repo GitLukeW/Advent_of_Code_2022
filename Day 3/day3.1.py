@@ -1,11 +1,12 @@
 import sys
+import string
 from pathlib import Path
 
 
 def rucksack(input):
     data = (input.split("\n"))
 
-    alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    alpha = string.ascii_letters
     points = {}
     sum = 0
 
