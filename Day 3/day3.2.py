@@ -17,7 +17,8 @@ def rucksack(input):
     for item in group:
         for line in item:
             for letter in line:
-                if (letter in item[0]) and (letter in item[1]) and (letter in item[2]):
+                if (letter in item[0]) and (letter in item[1]) and (letter in
+                                                                    item[2]):
                     sum += points[letter]
                     break
     print(sum/3)
