@@ -9,9 +9,9 @@ def doubled_up(input):
     for pair in team:
         nums = re.sub('\D', ' ', pair)
         sep = list(map(int, nums.split()))
-        if (sep[0] <= sep[2]) and (sep[1] >= sep[3]):
-            count += 1
-        elif (sep[0] >= sep[2]) and (sep[1] <= sep[3]):
+        first_contains_last = (sep[0] <= sep[2]) and (sep[1] >= sep[3])
+        last_contains_first = (sep[0] >= sep[2]) and (sep[1] <= sep[3])
+        if first_contains_last or last_contains_first:
             count += 1
     print(count)
 
