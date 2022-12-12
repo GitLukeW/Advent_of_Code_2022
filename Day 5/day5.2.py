@@ -27,9 +27,11 @@ def crates(input):
         from_stack = instruction[1]
         to_stack = instruction[2]
 
-        for crate in range(crates):
-            crate_removed = stacks[from_stack].pop()
-            stacks[to_stack].append(crate_removed)
+        crates_to_remove = stacks[from_stack][-crates:]
+        stacks[from_stack] = stacks[from_stack][:-crates]
+
+        for crate in crates_to_remove:
+            stacks[to_stack].append(crate)
 
     answer = ""
     for stack in stacks:
