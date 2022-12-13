@@ -9,7 +9,7 @@ def first_four(input):
         four_group = (input[list: list + window_size])
         if len(set(four_group)) == len(four_group):
             print(four_group)
-            print(list + 14)
+            print(list + window_size)
             break
 
 
